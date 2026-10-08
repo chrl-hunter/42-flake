@@ -49,7 +49,3 @@ echo $status
 - `flake.lock` is generated locally the first time; commit it alongside `flake.nix` for fully locked inputs.
 - `CFLAGS` is exported for tools that use it; direct `cc` commands still need explicit `-Wall -Wextra -Werror` flags.
 - Fish and Neovim are not installed or modified by this flake. `fish` must be available on the host.
-
-## Note
-
-This flake has not been evaluated or built in a Nix-enabled environment. If old LLVM dependencies fail to build on current NixOS, inspect the `nix develop` error before changing the pinned inputs.
