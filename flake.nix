@@ -34,11 +34,19 @@
             pkgs.binutils
             tools.python313
             norminette42
+			pkgs.man-db
+			pkgs.man-pages
+			pkgs.man-pages-posix
           ];
 
           shellHook = ''
             export CC=cc
             export CFLAGS="-Wall -Wextra -Werror"
+		    export MANPATH="${pkgs.lib.makeSearchPath "share/man" [
+              pkgs.man-pages
+              pkgs.man-pages-posix
+              pkgs.libbsd
+            ]}:$(manpath 2>/dev/null)"	
           '';
         };
     };
